@@ -2,10 +2,10 @@
 include_once('dataBase.php');
 
 // Define configuration
-define("DB_HOST", "ec2-23-23-248-247.compute-1.amazonaws.com");
-define("DB_USER", "dcswcsqsfzpezr");
-define("DB_PASS", "c7dcdfb6263074314a04ebfd7b86d1b8adab3906a4b1251fe79feab8d881611c");
-define("DB_NAME", "d88jp3b8ks58pn");
+define("DB_HOST", "ec2-23-21-197-231.compute-1.amazonaws.com");
+define("DB_USER", "msqdapuhslnseb");
+define("DB_PASS", "9773d294acb082151527d188e9208a8e0a1fee487a8e4fb2f8f9681a26338eb0");
+define("DB_NAME", "dem6du1gsprvsq");
 
 //define("DB_HOST", "localhost");
 //define("DB_USER", "postgres");
