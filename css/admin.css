@@ -1,0 +1,202 @@
+
+
+@font-face {
+    font-family: 'noodle';
+    src: url('fonts/big_noodle_titling.eot');
+    src: local('☺'), url('fonts/big_noodle_titling.woff') format('woff'), url('fonts/big_noodle_titling.ttf') format('truetype'), url  ('fonts/big_noodle_titling.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+}
+
+
+/*index.php*/
+
+body{
+margin: 0px;
+text-align: center;
+}
+
+
+#enlaceSalir{
+text-decoration: none;
+}
+
+.iniciarSesion h1{
+font-family: 'Roboto','sans-serif';
+padding: 50px;
+background-color: #0099FF;
+color: white;
+width: 100%;
+}
+
+#contact-form{
+position:relative;
+top:3em;
+}
+
+
+.iniciarSesion img{
+position:relative;
+top:1.5em;
+}
+
+
+input{
+border: 1px solid gray;
+padding:25px 24.5px;
+margin: 5px;
+text-align:left;
+}
+
+.main-button{
+padding:25px 97px;
+text-decoration: none;
+color: white;
+background-color: #0099FF;
+border: none;
+font-size:20px;
+}
+
+/*fin index.php*/
+
+
+
+/*page readsupremo*/
+
+
+.logo{
+    width: 200px;
+}
+
+.tituloMain{
+width: 100%;
+}
+
+
+#columna1, #columna2, #columna3, #columna4, #columna5{
+    display: table-cell;
+    border: 1px solid #000;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+
+#contenedor{
+margin: 0 auto;
+width: 1000px;
+display: table;
+text-align: center;
+margin: 0 auto;
+}
+
+
+#contenidos{
+width: 1000px;
+display: table-row;
+}
+
+
+#columna img{
+width: 80px;
+}
+
+
+.logo{
+width: 200px;
+}
+
+
+h1{
+ width: 200px;
+}
+
+
+#columna{
+width: 25%;
+height: 25%;
+text-align: center;
+float: left;
+padding: 50px 0px;
+background-color:#3D3D3D;
+border: 3px solid white;
+}
+
+#columna a{
+color: white;
+text-decoration: none;
+}
+
+
+#columna:hover{
+background-color:#0099FF;
+}
+
+/*Fin de readsupremo.php*/
+
+
+/*salir.php*/
+
+
+#main{
+position:relative;
+top:10em;
+left:3em;
+}
+
+.enlaceVolver{
+padding: 25px;
+background-color: #0099FF;
+text-decoration: none;
+color: white;
+}
+
+.enlaceVolver:hover{
+text-decoration: none;
+}
+
+.mensajeDestroy{
+padding: 25px;
+margin: 25px;			
+}
+
+#imgCierreSesion{
+width:100px;
+height:100px;
+}
+
+
+/*Fin de salir.php*/
+
+
+
+/*Responsive*/
+
+@media screen and (max-width: 750px){
+
+#contenedor{
+ width: 100%;
+}
+
+
+#columna{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 50px 0px;
+  clear: both;
+}
+
+}
+
+
