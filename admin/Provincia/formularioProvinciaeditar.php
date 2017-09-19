@@ -9,6 +9,9 @@ session_start();
 		<title> FORMULARIO demo</title>
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <section>
 </section>
@@ -44,5 +47,15 @@ NOMBRE:	<input name="nombre" id="nombre" type="text" value="<?php echo $ObjProvi
 </form>
 
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

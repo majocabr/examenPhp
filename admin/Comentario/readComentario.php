@@ -14,6 +14,10 @@ session_start();
    <link href="../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <header>
 
 </header>
@@ -27,7 +31,7 @@ session_start();
 
  echo "<nav class='navbar navbar-default'>";
     echo "<div class='container-fluid'>";
-    echo "<div class='navbar-header'><a class='navbar-brand' >Tabla Categoria</a></div>";
+    echo "<div class='navbar-header'><a class='navbar-brand' >Tabla Comentario</a></div>";
     echo " <ul class='nav navbar-nav'>";
             echo "<li><a href='../readsupremo.php'>Menú</a></li>";
       echo "<li><a href='crearComentario.php'>Nuevo</a></li>";
@@ -77,5 +81,16 @@ echo "</div>";
 
 ?>
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       // echo "permiso denegado";
+        echo"<a href='../index.php'>iniciar sesion</a>";
+    }
+ ?>
 </body>
 </html>

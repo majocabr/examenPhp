@@ -16,6 +16,10 @@ session_start();
 <body>
 
 <?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
+<?php
 
    echo "<nav class='navbar navbar-inverse'>";
     echo "<div class='container-fluid'>";
@@ -56,7 +60,16 @@ session_start();
     echo "</div>";
 ?>
 
+<?php
 
+}
+
+    
+    else {
+       // echo "permiso denegado";
+        echo"<a href='index.php'>iniciar sesion</a>";
+    }
+ ?>
 
 
 </body>

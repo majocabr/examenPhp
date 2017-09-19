@@ -14,6 +14,12 @@ session_start();
    <link href="css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
+
 <header>
 
 </header>
@@ -83,5 +89,17 @@ echo "</div>";
 
 ?>
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       // echo "permiso denegado";
+        echo"<a href='../index.php'>iniciar sesion</a>";
+    }
+ ?>
+
 </body>
 </html>

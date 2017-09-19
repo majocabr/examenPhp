@@ -16,6 +16,9 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <aside>
 <?php
@@ -37,7 +40,7 @@ session_start();
      echo "<div class='form-group'>";
          echo "<label for='inputName' class='control-label col-xs-2'>Nombre:</label>";
          echo "<div class='col-xs-10'>";
-             echo "<input name= 'nombre' type='text' id= 'nombre' class='form-control' placeholder='Nombre'>";
+             echo "<input name= 'nombre' type='text' id= 'nombre' class='form-control' placeholder='Nombre' required>";
          echo "</div>";
      echo "</div>";
      echo "<div class='form-group'>";
@@ -56,5 +59,15 @@ echo "</form>";
 
 
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

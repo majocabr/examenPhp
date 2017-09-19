@@ -14,7 +14,9 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
-
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <section>
 </section>
 <section>
@@ -48,7 +50,7 @@ echo "<nav class='navbar navbar-default'>";
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Titulo:</label>
          <div class="col-xs-10">
-             <input name = "titulo" type="text" id= "Titulo" class="form-control" placeholder="Titulo"  />
+             <input name = "titulo" type="text" id= "Titulo" class="form-control" placeholder="Titulo"  required/>
          </div>
      </div>
 
@@ -56,7 +58,7 @@ echo "<nav class='navbar navbar-default'>";
          <label for="inputName" class="control-label col-xs-2">Descripcion:</label>
          <div class="col-xs-10">
 <textarea name="descripcion" id= "descripcion"
-   rows="5" cols="50">Escriba la descripcion de la denuncia</textarea>
+   rows="5" cols="50" placeholder="Escriba la descripcion de la denuncia..." required></textarea>
    </div>
      </div>
 
@@ -209,7 +211,18 @@ echo "<option value='".$c->getIdAutoridad()."'>".$c->getNombre()."</option>";
 
 
 </aside>
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
+
 </html>
 <?php
 if (isset($_POST['btnGuardar'])){

@@ -17,6 +17,10 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 <section>
 </section>
 <section>
@@ -31,6 +35,7 @@ session_start();
     echo " <ul class='nav navbar-nav'>";
 		      	echo "<li><a href='../readsupremo.php'>Menú</a></li>";
 			echo "<li><a href='newDenunciante.php'>Nuevo</a></li>";
+        echo "<li><a href='readDenunciante.php'>Consultar</a></li>";
 		echo "</ul>";
     echo " <ul class='nav navbar-nav navbar-right'>";
     echo "<li><a href='#'>Hola Usuario : (" . $_SESSION ['MiSession'] . ")</a></li>";
@@ -42,12 +47,12 @@ session_start();
 $nombre=$_POST["nombre"];
 $apellido=$_POST["apellido"];
 $email=$_POST["email"];
-$id_usuario=$_POST["id_usuario"];
+$idusuario=$_POST["idusuario"];
 
 
 include_once("DenuncianteCollector.php");
 $DenuncianteCollectorObj= new DenuncianteCollector();
-$DenuncianteCollectorObj->insertDenunciante($nombre, $apellido, $email, $id_usuario);
+$DenuncianteCollectorObj->insertDenunciante($nombre, $apellido, $email, $idusuario);
 
 
 
@@ -64,5 +69,16 @@ echo "</div>";
 <div> <a href="readDenunciante.php">Regresar</a></div>
 
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>

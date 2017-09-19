@@ -14,6 +14,10 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <header>
 
 </header>
@@ -31,6 +35,7 @@ session_start();
     echo " <ul class='nav navbar-nav'>";
 		      	echo "<li><a href='../readsupremo.php'>Menú</a></li>";
 			echo "<li><a href='crearComentario.php'>Nuevo</a></li>";
+        echo "<li><a href='readComentario.php'>Consulta</a></li>";
 		echo "</ul>";
     echo " <ul class='nav navbar-nav navbar-right'>";
     echo "<li><a href='#'>Hola Usuario : (" . $_SESSION ['MiSession'] . ")</a></li>";
@@ -41,10 +46,12 @@ session_start();
 
 
 $descripccion = $_POST['descripccion'];
+$id_denuncia = $_POST['id_denuncia'];
+$id_denunciante = $_POST['id_denunciante'];
 
 include_once("ComentarioCollector.php");
 $ComentarioCollectorObj = new ComentarioCollector();
-$ComentarioCollectorObj->insertComentario($descripccion);
+$ComentarioCollectorObj->insertComentario($descripccion,$id_denuncia,$id_denunciante);
 
 echo "<br>";
 
@@ -52,12 +59,25 @@ echo "<div class='container'>";
 echo "  <h2>Comentario</h2>";
 echo "  <div class='panel panel-default'>";
 echo "    <div class='panel-heading'>Registro Ingresado Correctamente</div>";
-echo "    <div class='panel-body'>$descripcion</div>";
+echo "    <div class='panel-body'>$descripccion</div>";
+
+echo"<div> <a href='readComentario.php'>Regresar</a></div>";
 echo "  </div>";
 echo "</div>";
 ?>
 
-<div> <a href="readComentario.php">Regresar</a></div>
+
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       // echo "permiso denegado";
+        echo"<a href='../index.php'>iniciar sesion</a>";
+    }
+ ?>
 </body>
 </html>

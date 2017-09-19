@@ -14,7 +14,9 @@ session_start();
 <link href="../../css/tablas.css" rel="stylesheet" >
 </head>
 <body>
-
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 <aside>
 <?php
 
@@ -33,12 +35,8 @@ echo "</div>";
 echo "</nav>";
 
 $id=$_GET['id'];
-// $nombre=$_GET['nombre'];
-include_once("ParroquiaCollector.php");
-include_once("Parroquia.php");
-$ParroquiaCollectorObj= new ParroquiaCollector();
-$ObjParroquia=$ParroquiaCollectorObj->showParroquia($id);
-
+$nombre=$_GET['nombre'];
+$idciudad=$_GET['idciudad'];
 ?>
 
 <form method= "POST" class="form-horizontal" action= "guardarParroquia.php" >
@@ -50,7 +48,7 @@ $ObjParroquia=$ParroquiaCollectorObj->showParroquia($id);
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Nombre:</label>
          <div class="col-xs-10">
-           <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $ObjParroquia->getNombre();?>">
+           <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $nombre;?>" required>
          </div>
      </div>
 
@@ -65,11 +63,13 @@ $ObjParroquia=$ParroquiaCollectorObj->showParroquia($id);
 include_once("../Ciudad/CiudadCollector.php"); //llamar el collector de la otra tabla
 $CiudadCollectorObj = new CiudadCollector(); 
 foreach ($CiudadCollectorObj->showCiudades() as $c){
-if($c->getIdCiudad()==$ObjParroquia->getIdCiudad()){
-echo "<option value='".$c->getIdCiudad()."' selected>".$c->getNombre()."</option>";
-}else{
+if ($idciudad==$c->getIdCiudad()){
+echo "<option value='".$idciudad."' selected>".$c->getNombre()."</option>"; //Se añade una nueva provincia a la lista
+}
+else{ 
 echo "<option value='".$c->getIdCiudad()."'>".$c->getNombre()."</option>"; 
-}}
+}
+}
 ?>
 	     </select>
          </div>
@@ -85,5 +85,15 @@ echo "<option value='".$c->getIdCiudad()."'>".$c->getNombre()."</option>";
 </form>
 
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

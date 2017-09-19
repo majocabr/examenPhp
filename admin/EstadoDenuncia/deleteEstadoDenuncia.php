@@ -14,6 +14,9 @@ session_start();
 <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 
 <section>
 </section>
@@ -22,13 +25,16 @@ session_start();
 </section>
 <aside>
 <?php
+
+
 echo "<nav class='navbar navbar-default'>";
 	  echo "<div class='container-fluid'>";
-	    echo "<div class='navbar-header'><a class='navbar-brand' >Tabla Usuario</a></div>";
+	    echo "<div class='navbar-header'><a class='navbar-brand' >Tabla Estado de Denuncia</a></div>";
 		echo " <ul class='nav navbar-nav'>";
 		      	echo "<li><a href='../readsupremo.php'>Menú</a></li>";
 			echo "<li><a href='nuevoestadodenuncia.php'>Nuevo</a></li>";
 			echo "<li><a href='readEstadoDenuncia.php'>Consulta</a></li>";
+
 		echo "</ul>";
 		echo " <ul class='nav navbar-nav navbar-right'>";
 			echo "<li><a href='#'>Hola Usuario : (" . $_SESSION ['MiSession'] . ")</a></li>";
@@ -36,15 +42,18 @@ echo "<nav class='navbar navbar-default'>";
 		echo "</ul>";
 	  echo "</div>";
 	echo "</nav>";
+
 $id=$_GET["id"];
+
 include_once("EstadoDenunciaCollector.php");
 $EstadoDenunciaCollectorObj= new EstadoDenunciaCollector();
 $EstadoDenunciaCollectorObj->deleteEstadoDenuncia($id);
 echo "<br>";
+
 echo "<div class='container'>";
 echo "<div class='panel panel-default'>";
 echo "<div class='panel-heading'>Estado Denuncia Eliminado Correctamente</div>";
-echo "<div class='panel-body'>$no</div>";
+
 echo "</div>";
 echo "</div>";
 ?>
@@ -53,5 +62,15 @@ echo "</div>";
 </div>
 
 </aside>
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>

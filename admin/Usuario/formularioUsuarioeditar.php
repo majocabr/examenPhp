@@ -14,6 +14,9 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 
 <section>
 </section>
@@ -62,14 +65,14 @@ $ObjUsuario=$UsuarioCollectorObj->showUsuario($id);
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Usuario:</label>
          <div class="col-xs-10">
-             <input name = "usuario" type="text" id= "usuario" class="form-control" placeholder="usuario" value="<?php echo $ObjUsuario->getUsuario(); ?>"autofocus required/>
+             <input name = "usuario" type="text" id= "usuario" class="form-control" placeholder="usuario" value="<?php echo $ObjUsuario->getUsuario(); ?>" autofocus required/>
          </div>
      </div>
   <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Contraseña:</label>
          <div class="col-xs-10">
              <input name = "contrasenia" type="text" id= "contrasenia" class="form-control"
- placeholder="Contraseña" value="<?php echo $ObjUsuario->getContrasenia(); ?>" />
+ placeholder="Contraseña" value="<?php echo $ObjUsuario->getContrasenia(); ?>" required/>
          </div>
      </div>
      <div class="form-group">
@@ -104,6 +107,16 @@ $ObjUsuario=$UsuarioCollectorObj->showUsuario($id);
 
 
 </aside>
+<?php
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
+
 </body>
 </html>
 

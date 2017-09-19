@@ -17,7 +17,9 @@ session_start();
 <header>
 
 </header>
-
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 <aside>
 <?php
 
@@ -57,5 +59,15 @@ echo "</div>";
   <a href='readParroquia.php'>Regresar</a>                                          
 </div>
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

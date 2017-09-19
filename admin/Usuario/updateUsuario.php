@@ -17,6 +17,10 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 <section>
 </section>
 <section>
@@ -58,14 +62,25 @@ echo "  <h2>Cargos</h2>";
 echo "  <div class='panel panel-default'>";
 echo "    <div class='panel-heading'> Registro Actualizado Correctamente</div>";
 echo "    <div class='panel-body'>$usuario</div>";
+echo "<div> <a href='readUsuario.php'>Regresar</a></div>";
 echo "  </div>";
 echo "</div>";
  
 
 
 ?>
-<div> <a href="readUsuario.php">Regresar</a></div>
+
 </aside>
+<?php
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
+
 </body>
 </html>
 

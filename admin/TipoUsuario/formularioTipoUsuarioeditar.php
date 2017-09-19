@@ -14,7 +14,9 @@ session_start();
    <link href="../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
-
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <section>
 </section>
 <section>
@@ -62,7 +64,7 @@ echo "Edicion en proceso . . . . </br>";
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Tipo:</label>
          <div class="col-xs-10">
-             <input name = "tipo" type="text" id= "tipo" class="form-control" placeholder="Tipo" value="<?php echo $ObjTipoUsuario->getTipo(); ?>">
+             <input name = "tipo" type="text" id= "tipo" class="form-control" placeholder="Tipo" value="<?php echo $ObjTipoUsuario->getTipo(); ?>" required/>
          </div>
      </div>
      <div class="form-group">
@@ -76,6 +78,15 @@ echo "Edicion en proceso . . . . </br>";
 
 
 </aside>
+<?php
+
+}
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>Inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>
 

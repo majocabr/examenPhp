@@ -14,6 +14,9 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 
 <section>
 </section>
@@ -62,26 +65,26 @@ $ObjDenunciante=$DenuncianteCollectorObj->showDenunciante($id);
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Nombres:</label>
          <div class="col-xs-10">
-             <input name = "nombre" type="text" id= "nombre" class="form-control" placeholder="nombres" value="<?php echo $ObjDenunciante->getNombre(); ?>"autofocus required/>
+             <input name = "nombre" type="text" id= "nombre" class="form-control" placeholder="nombres" value="<?php echo $ObjDenunciante->getNombre(); ?>" autofocus required/>
          </div>
      </div>
   <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Apellidos:</label>
          <div class="col-xs-10">
              <input name = "apellido" type="text" id= "apellido" class="form-control"
- placeholder="apellidos" value="<?php echo $ObjDenunciante->getApellido(); ?>" />
+ placeholder="apellidos" value="<?php echo $ObjDenunciante->getApellido(); ?>" required/>
          </div>
      </div>
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Email:</label>
          <div class="col-xs-10">
-             <input name = "email" type="text" id= "email" class="form-control" placeholder="email" value="<?php echo $ObjDenunciante->getEmail(); ?>"/>
+             <input name = "email" type="text" id= "email" class="form-control" placeholder="email" value="<?php echo $ObjDenunciante->getEmail(); ?>" required/>
          </div>
      </div>
 <div class="form-group">
 <label for='inputName' class='control-label col-xs-2'>Usuario:</label>
         <div class='col-xs-10'>
-             <select name='tipousuario'  id= 'tipousuario' class='form-control' required>
+             <select name='idusuario'  id= 'idusuario' class='form-control' required>
 		
 <?php
 	include_once("../Usuario/UsuarioCollector.php");
@@ -109,6 +112,17 @@ $ObjDenunciante=$DenuncianteCollectorObj->showDenunciante($id);
 
 
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>
 

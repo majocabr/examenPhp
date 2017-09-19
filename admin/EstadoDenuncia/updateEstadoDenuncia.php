@@ -14,6 +14,10 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 
 <section>
 </section>
@@ -59,7 +63,7 @@ echo "Edicion en proceso . . . . </br>";
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Nombre:</label>
          <div class="col-xs-10">
-             <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $nombre;?>">
+             <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $nombre;?>" required>
          </div>
      </div>
      <div class="form-group">
@@ -73,7 +77,18 @@ echo "Edicion en proceso . . . . </br>";
 
 
 </aside>
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
+
 </html>
 
 </html>

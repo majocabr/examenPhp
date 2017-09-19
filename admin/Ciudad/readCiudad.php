@@ -17,6 +17,9 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <aside>
 <?php
@@ -53,11 +56,11 @@ foreach ($CiudadCollectorObj->showCiudades() as $c){
 
 echo "<tbody>"; 
 echo "<tr>"; 
-echo "<td>".$c->getIdCiudad()."</td>"; 
-
+echo "<td>".$c->getIdCiudad()."</td>";
 echo "<td>".$c->getNombre()."</td>";
 echo "<td>".$c->getIdProvincia()."</td>";
-echo "<td><a href='updateCiudad.php?id=".$c->getIdCiudad()."&nombre=".$c->getNombre()."'>Editar</a></td>"; 
+
+echo "<td><a href='updateCiudad.php?id=".$c->getIdCiudad()."&nombre=".$c->getNombre()."&idprovincia=".$c->getIdProvincia()."'>Editar</a></td>"; 
 echo "<td><a href='deleteCiudad.php?id=".$c->getIdCiudad()."&nombre=".$c->getNombre()."'>Eliminar</a></td>"; 
 echo "</tr>"; 
 }
@@ -66,8 +69,18 @@ echo "</tbody>";
 echo "</table>";
 echo "</div>";
 echo "</div>";
-
 ?>
 </aside>
+
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

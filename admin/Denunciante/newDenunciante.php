@@ -17,6 +17,10 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 <section>
 </section>
 <section>
@@ -31,6 +35,7 @@ session_start();
     echo " <ul class='nav navbar-nav'>";
 		      	echo "<li><a href='../readsupremo.php'>Menú</a></li>";
 			echo "<li><a href='newDenunciante.php'>Nuevo</a></li>";
+			
 		echo "</ul>";
     echo " <ul class='nav navbar-nav navbar-right'>";
     echo "<li><a href='#'>Hola Usuario : (" . $_SESSION ['MiSession'] . ")</a></li>";
@@ -53,13 +58,13 @@ session_start();
   <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Apellidos:</label>
          <div class="col-xs-10">
-             <input name = "apellido" type="text" id= "apellido" placeholder="apellidos" class="form-control"  />
+             <input name = "apellido" type="text" id= "apellido" placeholder="apellidos" class="form-control"  required/>
          </div>
      </div>
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Email:</label>
          <div class="col-xs-10">
-             <input name = "email" type="text" id= "email" class="form-control" placeholder="email" />
+             <input name = "email" type="text" id= "email" class="form-control" placeholder="email" required/>
          </div>
      </div>
 
@@ -67,14 +72,23 @@ session_start();
       
 <label for='inputName' class='control-label col-xs-2'>Usuario:</label>
         <div class='col-xs-10'>
-             <select name='tipousuario'  id= 'tipousuario' class='form-control' required>
+             <select name='idusuario'  id= 'idusuario' class='form-control' required>
 		<option selected></option>
 <?php
 include_once("../Usuario/UsuarioCollector.php");
+// $UsuarioCollectorObj = new UsuarioCollector(); 
+// foreach ($UsuarioCollectorObj->showUD() as $c){
+// echo "<option value='".$c->getIdUsuario()."'>".$c->getUsuario()."</option>"; 
+// }
 $UsuarioCollectorObj = new UsuarioCollector(); 
 foreach ($UsuarioCollectorObj->showUD() as $c){
-echo "<option value='".$c->getIdUsuario()."'>".$c->getUsuario()."</option>"; 
-}
+	   // if($c->getIdUsuario()==$ObjDenunciante->getIdUsuario()){
+		echo "<option value='".$c->getIdUsuario()."'selected>".$c->getUsuario()."</option>"; 
+	   // }else{
+		//echo "<option value='".$c->getIdUsuario()."'>".$c->getUsuario()."</option>"; 
+	   // }
+	}
+
 ?>
 	     </select>
         </div>
@@ -92,5 +106,16 @@ echo "<option value='".$c->getIdUsuario()."'>".$c->getUsuario()."</option>";
 
 
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>

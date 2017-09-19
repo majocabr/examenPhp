@@ -17,6 +17,10 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 <section>
 </section>
 <section>
@@ -53,7 +57,7 @@ session_start();
          <label for="inputName" class="control-label col-xs-2">Contraseña:</label>
          <div class="col-xs-10">
              <input name = "contrasenia" type="text" id= "contrasenia" class="form-control"
- placeholder="Contraseña"  />
+ placeholder="Contraseña"  required/>
          </div>
      </div>
      
@@ -85,5 +89,15 @@ echo "<option value='".$c->getIdTipoUsuario()."'>".$c->getTipo()."</option>";
 
 
 </aside>
+<?php
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
+
 </body>
 </html>

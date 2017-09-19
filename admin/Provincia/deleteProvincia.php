@@ -17,6 +17,9 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <aside>
 <?php
@@ -42,12 +45,14 @@ $no=$_GET['nombre'];
 include_once("ProvinciaCollector.php");
 $ProvinciaCollectorObj= new ProvinciaCollector();
 $ProvinciaCollectorObj->deleteProvincia($id);
+
+
 echo "<br>";
 
 echo "<div class='container'>";
 echo "<div class='panel panel-default'>";
 echo "<div class='panel-heading'>Provincia Eliminada Correctamente</div>";
-echo "<div class='panel-body'>$no</div>";
+echo "<div class='panel-body'>$nombre</div>";
 echo "</div>";
 echo "</div>";
 ?>
@@ -57,6 +62,17 @@ echo "</div>";
 </div>
 
 
+?>
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

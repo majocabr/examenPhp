@@ -17,6 +17,9 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <aside>
 <?php
@@ -56,6 +59,8 @@ echo "<td>".$c->getIdProvincia()."</td>";
 echo "<td>".$c->getNombre()."</td>";
 echo "<td><a href='updateProvincia.php?id=".$c->getIdProvincia()."&nombre=".$c->getNombre()."'>Editar</a></td>"; 
 echo "<td><a href='deleteProvincia.php?id=".$c->getIdProvincia()."&nombre=".$c->getNombre()."'>Eliminar</a></td>"; 
+
+	// echo "<td><a href='deleteProvincia.php?id=".$c->getIdProvincia()."'>Resetear</a></td>"; 
 echo "</tr>"; 
 }
 
@@ -65,6 +70,19 @@ echo "</div>";
 echo "</div>";
 
 ?>
+
+
+
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

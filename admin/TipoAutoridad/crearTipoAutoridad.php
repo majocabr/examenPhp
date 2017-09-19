@@ -14,6 +14,10 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <header>
 
 </header>
@@ -44,7 +48,7 @@ echo "<form method= 'POST' class='form-horizontal' action= 'nuevoTipoAutoridad.p
      echo "<div class='form-group'>";
          echo "<label for='inputName' class='control-label col-xs-2'>Nombre:</label>";
          echo "<div class='col-xs-10'>";
-             echo "<input name = 'nombre' type='text' id= 'nombre' class='form-control' placeholder='Nombre'>";
+             echo "<input name = 'nombre' type='text' id= 'nombre' class='form-control' placeholder='Nombre' required>";
          echo "</div>";
          echo "</div>";
     
@@ -59,5 +63,16 @@ echo "</form>";
 
 
 </aside>
+
+<?php
+
+}
+
+    
+    else {
+       // echo "permiso denegado";
+        echo"<a href='../index.php'>iniciar sesion</a>";
+    }
+ ?>
 </body>
 </html>

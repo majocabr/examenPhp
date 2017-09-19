@@ -26,7 +26,7 @@
 		}
 
 		function updateComentario($id,$descripccion,$id_denuncia,$id_denunciante){
-			$insertRow = self::$db->updateRow("UPDATE public.comentario SET descripccion = ? , id_denuncia = ? , id_denunciante = ? WHERE id_comentario = ?", array ("{$descripcion}","{$id_denuncia}","{$id_denunciante}",$id));
+			$insertRow = self::$db->updateRow("UPDATE public.comentario SET descripccion = ? , id_denuncia = ? , id_denunciante = ? WHERE id_comentario = ?", array ("{$descripccion}","{$id_denuncia}","{$id_denunciante}",$id));
 
 		}
 
@@ -35,7 +35,7 @@
 		}
 
 		function insertComentario($descripccion,$id_denuncia,$id_denunciante) {
-    $rows = self::$db->insertRow("INSERT INTO public.comentario(descripccion,id_denuncia,id_denunciante) VALUES (?,?,?)", array ("{$descripcion}","{$id_denuncia}","{$descripcion}"));             
+    $rows = self::$db->insertRow("INSERT INTO public.comentario(descripccion,id_denuncia,id_denunciante) VALUES (?,?,?)", array ("{$descripccion}","{$id_denuncia}","{$id_denunciante}"));             
   }
 	}
 

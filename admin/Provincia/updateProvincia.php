@@ -14,6 +14,9 @@ session_start();
 <link href="../../css/tablas.css" rel="stylesheet" >
 </head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+?>
 
 <aside>
 <?php
@@ -47,7 +50,7 @@ $nombre=$_GET['nombre'];
      <div class="form-group">
          <label for="inputName" class="control-label col-xs-2">Nombre:</label>
          <div class="col-xs-10">
-           <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $nombre;?>">
+           <input name = "Nombre" type="text" id= "Nombre" class="form-control" placeholder="Nombre" value="<?php echo $nombre;?>" required>
          </div>
      </div>
      <div class="form-group">
@@ -59,5 +62,15 @@ $nombre=$_GET['nombre'];
 </form>
 
 </aside>
+<?php
+}   
+    else {
+echo "<center>";
+    echo "<h1>PERMISO DENEGADO</h1>";
+    echo "<br>";
+    echo"<a href='../index.php'><h1>Iniciar Sesión</h1></a>";
+echo "</center>";
+    }
+?>
 </body>
 </html>

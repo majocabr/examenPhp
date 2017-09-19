@@ -17,6 +17,10 @@ session_start();
 <header>
 
 </header>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
+
 <section>
 </section>
 <section>
@@ -31,7 +35,7 @@ session_start();
     echo " <ul class='nav navbar-nav'>";
 		      	echo "<li><a href='readsupremo.php'>Menú</a></li>";
 			echo "<li><a href='newUsuario.php'>Nuevo</a></li>";
-      echo "<li><a href='../readUsuario.php'>Consulta</a></li>";
+      echo "<li><a href='readUsuario.php'>Consulta</a></li>";
 		echo "</ul>";
     echo " <ul class='nav navbar-nav navbar-right'>";
     echo "<li><a href='#'>Hola Usuario : (" . $_SESSION ['MiSession'] . ")</a></li>";
@@ -63,5 +67,15 @@ echo "</div>";
 <div> <a href="readUsuario.php">Regresar</a></div>
 
 </aside>
+<?php
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
+
 </body>
 </html>

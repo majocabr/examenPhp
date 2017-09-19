@@ -14,6 +14,9 @@ session_start();
    <link href="../../css/tablas.css" rel="stylesheet" >
 	</head>
 <body>
+<?php
+if (isset($_SESSION['MiSession'])){
+    ?>
 <header>
 
 </header>
@@ -47,17 +50,20 @@ $descripcion = $_POST["descripcion"];
 $fecha_publicacion = $_POST["fecha_publicacion"];
 $fecha_ejecucion = $_POST["fecha_ejecucion"];
 $id_denunciante=$_POST["id_denunciante"];
-$idciudad=$_POST["idciudad"];
-$idparroquia=$_POST["idparroquia"];
+$id_ciudad=$_POST["id_ciudad"];
+$id_parroquia=$_POST["id_parroquia"];
 $id_categoria=$_POST["id_categoria"];
 $id_estado_denuncia=$_POST["id_estado_denuncia"];
 $id_autoridad=$_POST["id_autoridad"];
-$imagen=$_POST["imagen"];
+$imagen=$_POST['imagen'];
 
+// $archivo = $_FILES['imagen']['tmp_name'];
+// $destino = "../../perfil/". $_FILES['imagen']['name'];
+// move_uploaded_file($archivo,$destino);
 
 include_once("DenunciaCollector.php");
 $DenunciaCollectorObj= new DenunciaCollector();
-$DenunciaCollectorObj->updateDenuncia($id_denuncia,$titulo,$descripcion,$fecha_publicacion,$fecha_ejecucion,$id_denunciante,$idciudad,$idparroquia,$id_categoria,$id_estado_denuncia,$id_autoridad,$imagen);
+$DenunciaCollectorObj->updateDenuncia($id_denuncia,$titulo,$descripcion,$fecha_publicacion,$fecha_ejecucion,$id_denunciante,$id_ciudad,$id_parroquia,$id_categoria,$id_estado_denuncia,$id_autoridad,$imagen);
 
 
 echo "<br>";
@@ -75,5 +81,16 @@ echo "</div>";
 ?>
 <div> <a href="readDenuncia.php">Regresar</a></div>
 </aside>
+<?php
+
+}
+
+    
+    else {
+       echo "permiso denegado";
+       echo"<a href='../index.php'>inicia sesion</a>";
+    }
+ ?>
 </body>
 </html>
+
